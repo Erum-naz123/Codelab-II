@@ -7,6 +7,7 @@
 #include <limits>
 using namespace std;
 
+//made class to store information of the books
 class Book {
 public:
     string title, author, id;
@@ -23,6 +24,7 @@ public:
     }
 };
 
+//loads avaible books
 vector<Book> loadBooks(const string& filename) {
     ifstream input(filename);
     vector<Book> books;
@@ -56,7 +58,7 @@ vector<Book> loadBooks(const string& filename) {
     }
     return books;
 }
-
+//updates when state of the book changes 
 bool saveBooks(const string& filename, const vector<Book>& books) {
     ofstream output(filename);
     if (!output) return false;
@@ -65,7 +67,7 @@ bool saveBooks(const string& filename, const vector<Book>& books) {
                << book.id << ',' << (book.borrowed ? "true" : "false") << '\n';
     return static_cast<bool>(output);
 }
-
+//find book which user wants if that is avaialble
 Book* findBook(vector<Book>& books, const string& id) {
     for (Book& book : books) if (book.id == id) return &book;
     return nullptr;
