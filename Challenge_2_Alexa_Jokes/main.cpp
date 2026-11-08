@@ -6,6 +6,7 @@
 #include <random>
 using namespace std;
 
+//check the file availble as the dataset 
 vector<string> loadJokes(const string& filename) {
     ifstream file(filename);
     vector<string> jokes;
@@ -19,7 +20,7 @@ vector<string> loadJokes(const string& filename) {
     }
     return jokes;
 }
-
+//asks user for input 
 void tellJoke(const string& joke) {
     size_t separator = joke.find('?');
     cout << joke.substr(0, separator + 1) << '\n';
@@ -40,6 +41,7 @@ int main() {
     uniform_int_distribution<size_t> pick(0, jokes.size() - 1);
     cout << "Type 'Alexa, tell me a joke' or 'quit' to finish.\n";
     string command;
+    //loop for running until the user ends the chat using quit
     while (true) {
         cout << "> ";
         if (!getline(cin, command) || command == "quit" || command == "Quit") break;
