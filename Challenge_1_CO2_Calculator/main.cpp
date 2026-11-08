@@ -4,6 +4,7 @@
 #include <limits>
 using namespace std;
 
+//get distance input the distance from the user
 double getDistance() {
     double miles;
     while (true) {
@@ -14,7 +15,7 @@ double getDistance() {
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 }
-
+//input fuel type from the user P or D 
 char getFuelType() {
     char fuel;
     while (true) {
@@ -26,7 +27,7 @@ char getFuelType() {
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 }
-
+//this functions calculates emission
 double calculateEmissions(double miles, char fuel) {
     const double litresPer100Miles = 9.66;
     const double dieselKgPerLitre = 2.68;
